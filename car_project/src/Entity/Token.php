@@ -27,7 +27,7 @@ class Token
     private $value;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="token" ,cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

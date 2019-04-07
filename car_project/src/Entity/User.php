@@ -49,6 +49,10 @@ class User implements UserInterface
         $this->cars = new ArrayCollection();
     }
 
+    /**
+     * @ORM\OneToOne(targetEntity="Token", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $token;
 
     public function getId(): ?int
     {
@@ -155,5 +159,17 @@ class User implements UserInterface
             $car->setUser($this);
         }
     }
+
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    public function setToken($token): void
+    {
+        $this->token = $token;
+    }
+
+
 
 }
