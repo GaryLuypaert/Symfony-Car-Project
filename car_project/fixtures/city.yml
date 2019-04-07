@@ -1,0 +1,9 @@
+App\Entity\City:
+  bruxelles:
+    name: Bruxelles
+  namur:
+    name: Namur
+  paris:
+    name: Paris
+  lyon:
+    name: Lyon

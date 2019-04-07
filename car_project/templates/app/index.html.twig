@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1>Liste des voitures</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modèle</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for car in cars %}
+                <tr>
+                    <td>{{ car.id }}</td>
+                    <td><a href="{{ path('car_page', {id:car.id}) }}">{{ car.model }}</a></td>
+                    {% if is_granted('EDIT', car) %}
+                    <td><a href="{{ path('edit_page', {id:car.id}) }}" class="btn btn-primary">Modifier</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock body %}

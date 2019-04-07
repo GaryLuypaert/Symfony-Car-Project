@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <h1>Ajouter une voiture</h1>
+
+        {% include("app/form.html.twig") %}
+
+        <button class="addKeyword btn btn-info">Ajouter mots-clés</button>
+
+        <button type="submit" class="btn btn-success">Sauvegarder</button>
+
+    {{ form_end(form) }}
+
+    </div>
+
+{% endblock body %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="{{ asset('js/form_car.js') }}"></script>
+
+{% endblock javascripts %}

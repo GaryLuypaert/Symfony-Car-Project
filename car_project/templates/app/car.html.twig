@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Détails de la voiture n° {{ car.id }}: </h1>
+    <ul>
+        <li>Modèle de la voiture : {{ car.model }}</li>
+        <li>Prix de la voiture : {{ car.price }} €</li>
+        <li>Couleur : {{ car.color }}</li>
+        <li>Carburant : {{ car.carburant }}</li>
+        <li>
+            Image:
+            {% if car.image.name is defined %}
+                <img src="{{ asset('img/'~car.image.name) }}" alt="img car">
+            {% else %}
+                <p>Pas d'image</p>
+            {% endif %}
+        </li>
+        <li>Mots-clés :</li>
+        {% for keyword in car.keywords %}
+            {{ keyword.name }} {% if not loop.last %},{% endif %}
+        {% endfor %}
+
+        <li>Disponibles dans les villes suivantes :</li>
+        {% for city in car.cities %}
+            {{ city.name }} {% if not loop.last %},{% endif %}
+        {% endfor %}
+
+    </ul>
+{% endblock body %}

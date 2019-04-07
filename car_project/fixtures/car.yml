@@ -1,0 +1,13 @@
+App\Entity\Car:
+  car_{206, R8, C3}:
+    model: '<current()>'
+    price: '<carPrice()>'
+    color: '<carColor()>'
+    carburant: '<carCarburant()>'
+    cities: ['@bruxelles', '@paris']
+  car_{Twingo, X3}:
+    model: '<current()>'
+    price: '<carPrice()>'
+    color: '<carColor()>'
+    carburant: '<carCarburant()>'
+    cities: ['@bruxelles','@namur', '@lyon']

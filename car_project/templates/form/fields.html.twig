@@ -1,0 +1,13 @@
+{% block keyword_widget %}
+    {% spaceless %}
+        <div class="keywordsArea">
+            {{ block('collection_widget') }}
+
+            {% if form.vars.value.id is defined %}
+                <a data-keyword-id="{{ form.vars.value.id }}"
+                   data-delete-path="{{ path('delete_keyword', {id: form.vars.value.id}) }}"
+                   href="#" class="btn btn-danger btn-xs delete-keyword">Supprimer</a>
+            {% endif %}
+        </div>
+    {% endspaceless %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Page d'administration</h1>
+        <h2>Liste des utilisateurs ( {{ users|length }} )</h2>
+        <table class="table mt-5">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Utilisateurs</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles|join(',') }}</td>
+                    <td>
+                        {% if app.user.id != user.id %}
+                        <a href="{{ path('delete_user', {id:user.id}) }}" class="btn btn-danger">Supprimer</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
